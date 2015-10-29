@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Display an SVG drawing as slides",
   "scripts": {
+    "start": "concurrent \"npm run start:serve\" \"npm run start:open\"",
+    "start:serve": "hostr --port 9116",
+    "start:open": "sleepms 500 && opn http://localhost:9116",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "© 2015 Studio B12 GmbH  (http://studio-b12.de)",
@@ -14,5 +17,11 @@
     "url": "git@github.com:studio-b12/lightning-talk"
   },
   "homepage": "https://github.com/studio-b12/tape-css/#/",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^0.1.1",
+    "hostr": "^2.2.10",
+    "opn-cli": "^1.0.0",
+    "sleep-ms": "^2.0.0"
+  }
 }
