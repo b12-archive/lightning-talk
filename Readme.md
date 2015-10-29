@@ -35,3 +35,14 @@ During your talk
 Left-click to view the next slide. Right-click to view the previous slide.
 
 Better navigation will probably come. Open a PR if you want it fast.
+
+
+
+
+License
+-------
+
+[MIT][] © [Studio B12 GmbH][]
+
+[MIT]:              ./License.md
+[Studio B12 GmbH]:  http://studio-b12.de
