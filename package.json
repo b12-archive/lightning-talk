@@ -1,6 +1,6 @@
 {
   "name": "lightning-talk",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Display an SVG drawing as slides",
   "scripts": {
     "start": "concurrent \"npm run start:serve\" \"npm run start:open\"",
