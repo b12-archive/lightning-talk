@@ -38,7 +38,7 @@ Getting started
 During your talk
 ----------------
 
-Left-click to view the next slide. Right-click to view the previous slide.
+<kbd>LEFT CLICK</kbd> to view the next slide. <kbd>RIGHT CLICK</kbd> to view the previous slide.
 
 Better navigation will probably come. Open a PR if you want it fast.
 
