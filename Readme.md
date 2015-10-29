@@ -45,6 +45,16 @@ Better navigation will probably come. Open a PR if you want it fast.
 
 
 
+<a                                                 id="/known-issues"></a>&nbsp;
+
+Known issues
+------------
+
+It looks liks Chromium v46.0.2490.80 has problems interpreting click events from time to time. Google Chrome doesn’t seem to be affected.
+
+
+
+
 <a                                                      id="/license"></a>&nbsp;
 
 License
