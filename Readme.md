@@ -13,6 +13,9 @@
 
 
 
+
+<a                                                 id="/installation"></a>&nbsp;
+
 Getting started
 ---------------
 
@@ -29,6 +32,9 @@ Getting started
 
 
 
+
+<a                                                        id="/usage"></a>&nbsp;
+
 During your talk
 ----------------
 
@@ -38,6 +44,8 @@ Better navigation will probably come. Open a PR if you want it fast.
 
 
 
+
+<a                                                      id="/license"></a>&nbsp;
 
 License
 -------
