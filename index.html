@@ -2,7 +2,10 @@
 
 <head>
   <style>
-    html, body, #display {
+    html,
+    body,
+    main,
+    main > svg {
       margin: 0;
       padding: 0;
       width: 100%;
@@ -11,19 +14,14 @@
       cursor: none;
       -webkit-user-select: none;
     }
-
-    #display svg {
-      width: 100%;
-      height: 100%;
-    }
   </style>
 </head>
 
 <body>
-  <div id="display"></div>
+  <main></main>
 
   <script>
-    const display = document.querySelector('#display');
+    const display = document.querySelector('main');
 
     const viewBox = (slideNumber) => (
       `0 ${slideNumber * 1500} 1920 1080`
