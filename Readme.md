@@ -1,20 +1,18 @@
-<a                                                                   id="/"></a>
-
+<a id="/"></a>
 **Fair warning:** I wrote this thing 20 minutes before a talk. It’s quite unpolished.
 
 
 
 &nbsp;
 
-⚡ lightning-talk
-================
+# lightning-talk ⚡
 
 **Show an SVG drawing as slides**
 
 
 
 
-<a                                                 id="/installation"></a>&nbsp;
+<a id="/installation"></a>&nbsp;
 
 Getting started
 ---------------
@@ -33,7 +31,7 @@ Getting started
 
 
 
-<a                                                        id="/usage"></a>&nbsp;
+<a id="/usage"></a>&nbsp;
 
 During your talk
 ----------------
@@ -45,7 +43,7 @@ Better navigation will probably come. Open a PR if you want it fast.
 
 
 
-<a                                                 id="/known-issues"></a>&nbsp;
+<a id="/known-issues"></a>&nbsp;
 
 Known issues
 ------------
@@ -55,7 +53,7 @@ It looks liks Chromium v46.0.2490.80 has problems interpreting click events from
 
 
 
-<a                                                      id="/license"></a>&nbsp;
+<a id="/license"></a>&nbsp;
 
 License
 -------
