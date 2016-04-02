@@ -86,4 +86,4 @@ Open the site in a modern browser (`google-chrome --app` often does a good job) 
 
 # LICENSE
 
-(MIT)[https://git.io/lightning-talk.License] © [Tomek Wiszniewski](https://github.com/tomekwi) and [Studio B12](https://github.com/studio-b12)
+[MIT](https://git.io/lightning-talk.License) © [Tomek Wiszniewski](https://github.com/tomekwi) and [Studio B12](https://github.com/studio-b12)
