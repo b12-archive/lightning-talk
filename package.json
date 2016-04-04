@@ -4,7 +4,7 @@
   "description": "Show an SVG drawing as slides",
   "scripts": {
     "build": "browserify index.js | cat build/index.before-style.html build/style.css build/index.before-script.html - build/index.very-end.html > index.html",
-    "start": "budo index.js --css=build/style.css --open",
+    "start": "budo --live --css=build/style.css --open index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "© 2015 Studio B12 GmbH  (http://studio-b12.de)",
