@@ -33,10 +33,12 @@ fetch('slides.svg').then(
   // MODEL
 
   const state = new Proxy({}, refreshView);
-  state.slide =
-    0;
-  state.layer =
-    0;
+  setTimeout(() => {
+    state.slide =
+      0;
+    state.layer =
+      0;
+  });
 
 
   // UPDATE
