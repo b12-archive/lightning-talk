@@ -9,37 +9,58 @@ const viewBox = (slideNumber) => (
 fetch('slides.svg').then(
   response => response.text()
 ).then((slides) => {
-  // Create DOM
+  // VIEW
+
   const parametricSvg = document.createElement('parametric-svg');
   parametricSvg.innerHTML = slides;
   display.appendChild(parametricSvg);
   const svg = display.querySelector('svg');
 
-  // Slide change logic
-  const setSlide = (number) => svg.setAttribute('viewBox', viewBox(number));
-  setSlide(0);
-  let currentSlide = 0;
-  const decrementSlide = () => setSlide(currentSlide <= 0 ?
-    currentSlide :
-    --currentSlide
-  );
-  const incrementSlide = () => setSlide(++currentSlide);
+  const refreshView = {
+    set(target, key, value) {
+      if (key === 'currentSlide')
+        svg.setAttribute('viewBox', viewBox(value));
 
-  // Set listeners:
-  // - click
+      target[key] = value; // eslint-disable-line no-param-reassign
+      return true;
+    },
+  };
+
+
+  // MODEL
+
+  const state = new Proxy({}, refreshView);
+  state.currentSlide =
+    0;
+
+
+  // UPDATE
+
+  const incrementSlide = () => {
+    state.currentSlide += 1;
+  };
+
+  const decrementSlide = () => {
+    state.currentSlide = Math.max(
+      state.currentSlide - 1,
+      0
+    );
+  };
+
+  // Click
   display.addEventListener('click', (event) => {
     if (event.which !== 1) return;
     incrementSlide();
     event.preventDefault();
   });
 
-  // - right click
+  // Right click
   display.addEventListener('contextmenu', (event) => {
     decrementSlide();
     event.preventDefault();
   });
 
-  // - scroll wheel
+  // Scroll wheel
   display.addEventListener('mousewheel', (event) => {
     if (event.wheelDelta < 0) {
       incrementSlide();
@@ -48,7 +69,4 @@ fetch('slides.svg').then(
     }
     event.preventDefault();
   });
-
-  // Export stuff.
-  window.setSlide = setSlide;
 });

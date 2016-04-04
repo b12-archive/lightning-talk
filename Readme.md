@@ -73,7 +73,7 @@ Open the site in a modern browser (`google-chrome --app` often does a good job) 
 
 ## DURING YOUR TALK
 
-0. Make sure you use a modern browser (fetch API, arrow functions). Chrome v45+ and Firefox v40+ have it all.
+0. Make sure you use a modern browser (`fetch` API, arrow functions, `Proxy`). Chrome v49+ and Firefox v40+ have it all.
 
 0. <kbd>SCROLL DOWN</kbd> or <kbd>→</kbd> to view the next slide. <kbd>SCROLL UP</kbd> or <kbd>←</kbd> to view the previous slide.
 
