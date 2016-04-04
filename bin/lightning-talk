@@ -46,6 +46,12 @@ const ecstatic = require('ecstatic');
 http.createServer(
   ecstatic({ root: process.cwd() })
 ).listen(opts.port);
+
 process.stdout.write(
   `Serving the current directory at http://0.0.0.0:${opts.port}.\n`
 );
+
+if (opts.open) {
+  const open = require('open');
+  open(`http://localhost:${opts.port}`);
+}

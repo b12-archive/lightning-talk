@@ -41,6 +41,7 @@
     "ecstatic": "^1.4.0",
     "hasbin": "^1.2.1",
     "minimist": "^1.2.0",
-    "mousetrap": "^1.5.3"
+    "mousetrap": "^1.5.3",
+    "open": "0.0.5"
   }
 }
