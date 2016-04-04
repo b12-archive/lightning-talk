@@ -1,3 +1,4 @@
+require('document-register-element');
 require('@parametric-svg/element');
 
 const mousetrap = require('mousetrap');
