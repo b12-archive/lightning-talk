@@ -34,6 +34,16 @@ fetch('slides.svg').then(
     event.preventDefault();
   });
 
+  //    - scrollwheels
+  display.addEventListener('mousewheel', (event) => {
+    if (event.wheelDelta < 0) {
+      incrementSlide();
+    } else {
+      decrementSlide();
+    }
+    event.preventDefault();
+  });
+
   // Export stuff.
   window.setSlide = setSlide;
 });
