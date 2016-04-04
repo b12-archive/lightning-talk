@@ -18,5 +18,8 @@
   "license": "MIT",
   "devDependencies": {
     "budo": "^8.1.0"
+  },
+  "dependencies": {
+    "@parametric-svg/element": "^1.2.4"
   }
 }

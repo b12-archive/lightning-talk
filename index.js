@@ -1,3 +1,5 @@
+require('@parametric-svg/element');
+
 const display = document.body;
 
 const viewBox = (slideNumber) => (
@@ -7,34 +9,37 @@ const viewBox = (slideNumber) => (
 fetch('slides.svg').then(
   response => response.text()
 ).then((slides) => {
-  display.innerHTML = slides;
-
+  // Create DOM
+  const parametricSvg = document.createElement('parametric-svg');
+  parametricSvg.innerHTML = slides;
+  display.appendChild(parametricSvg);
   const svg = display.querySelector('svg');
+
+  // Slide change logic
   const setSlide = (number) => svg.setAttribute('viewBox', viewBox(number));
   setSlide(0);
-
-  var currentSlide = 0;
+  let currentSlide = 0;
   const decrementSlide = () => setSlide(currentSlide <= 0 ?
     currentSlide :
     --currentSlide
   );
   const incrementSlide = () => setSlide(++currentSlide);
 
-  // Set listeners.
-  //    - click
+  // Set listeners:
+  // - click
   display.addEventListener('click', (event) => {
     if (event.which !== 1) return;
     incrementSlide();
     event.preventDefault();
   });
 
-  //    - right click
+  // - right click
   display.addEventListener('contextmenu', (event) => {
     decrementSlide();
     event.preventDefault();
   });
 
-  //    - scrollwheels
+  // - scroll wheel
   display.addEventListener('mousewheel', (event) => {
     if (event.wheelDelta < 0) {
       incrementSlide();
