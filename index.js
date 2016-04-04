@@ -66,8 +66,8 @@ fetch('slides.svg').then(
   const nextSlide = changeSlide(increment);
   const previousSlide = changeSlide(decrement);
 
-  display.addEventListener('mousewheel', (event) => {
-    (event.wheelDelta < 0 ?
+  display.addEventListener('wheel', (event) => {
+    (event.deltaY > 0 ?
       nextSlide :
       previousSlide
     )();
