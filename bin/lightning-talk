@@ -1,0 +1,35 @@
+#! /usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const child = require('child_process');
+
+const minimist = require('minimist');
+const hasbinSync = require('hasbin').sync;
+
+const opts = minimist(process.argv.slice(2), { default: {
+  port: 8080,
+  serve: true,
+  open: false,
+  help: false,
+} });
+
+if (opts.help) {
+  const manpagePath =
+    path.resolve(__dirname, '../manpages/lightning-talk.1');
+
+  if (hasbinSync('man')) {
+    child.spawnSync('man', [manpagePath], { stdio: 'inherit' });
+  } else {
+    const textFallback =
+      fs.readFileSync(`${manpagePath}.txt`);
+    process.stdout.write(textFallback);
+  }
+
+  process.exit(0);
+}
+
+fs.writeFileSync(
+  'index.html',
+  fs.readFileSync(`${__dirname}/index.html`)
+);

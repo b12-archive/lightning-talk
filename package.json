@@ -9,6 +9,9 @@
     "start": "budo --live --css=build/style.css --open index.js",
     "test": "eslint . && echo \"Heads up! Only linting supported at the moment.\""
   },
+  "bin": {
+    "lightning-talk": "./bin/lightning-talk"
+  },
   "files": [
     "/index.js",
     "/*.md",
@@ -35,6 +38,8 @@
   },
   "dependencies": {
     "@parametric-svg/element": "^1.2.4",
+    "hasbin": "^1.2.1",
+    "minimist": "^1.2.0",
     "mousetrap": "^1.5.3"
   }
 }
