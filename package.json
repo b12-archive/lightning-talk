@@ -5,7 +5,7 @@
   "scripts": {
     "build": "browserify index.js | cat build/index.before-style.html build/style.css build/index.before-script.html - build/index.very-end.html > index.html",
     "start": "budo --live --css=build/style.css --open index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint . && echo \"Heads up! Only linting supported at the moment.\""
   },
   "author": "© 2015 Studio B12 GmbH  (http://studio-b12.de)",
   "contributors": [
@@ -17,7 +17,9 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "budo": "^8.1.0"
+    "budo": "^8.1.0",
+    "eslint": "^2.6.0",
+    "eslint-config-airbnb": "^6.2.0"
   },
   "dependencies": {
     "@parametric-svg/element": "^1.2.4"
