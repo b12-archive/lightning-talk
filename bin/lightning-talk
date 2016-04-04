@@ -1,0 +1,64 @@
+#! /usr/bin/env node
+
+const fs = require('fs-extra');
+
+const minimist = require('minimist');
+
+const opts = minimist(process.argv.slice(2), { default: {
+  port: 8080,
+  serve: true,
+  open: false,
+  help: false,
+} });
+
+if (opts.help) {
+  const path = require('path');
+  const child = require('child_process');
+  const hasbinSync = require('hasbin').sync;
+
+  const manpagePath =
+    path.resolve(__dirname, '../manpages/lightning-talk.1');
+
+  if (hasbinSync('man')) {
+    child.spawnSync('man', [manpagePath], { stdio: 'inherit' });
+  } else {
+    const textFallback =
+      fs.readFileSync(`${manpagePath}.txt`);
+    process.stdout.write(textFallback);
+  }
+
+  process.exit(0);
+}
+
+fs.copySync(
+  `${__dirname}/../index.html`,
+  'index.html',
+  { clobber: true }
+);
+
+if (!opts.serve) {
+  process.exit(0);
+}
+
+const http = require('http');
+const ecstatic = require('ecstatic');
+
+http.createServer(
+  ecstatic({ root: process.cwd() })
+).listen(opts.port);
+
+process.stdout.write(
+`Serving your talk from the current directory at http://0.0.0.0:${opts.port}.
+Press ⌃C to end the process.
+`
+);
+
+if (opts.open !== false) {
+  const open = require('open');
+  const address = `http://localhost:${opts.port}`;
+  if (typeof opts.open === 'string') {
+    open(address, opts.open);
+  } else {
+    open(address);
+  }
+}

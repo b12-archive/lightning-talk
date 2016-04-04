@@ -3,11 +3,23 @@
   "version": "2.0.0",
   "description": "Show an SVG drawing as slides",
   "scripts": {
-    "start": "concurrent \"npm run start:serve\" \"npm run start:open\"",
-    "start:serve": "hostr --port 9116",
-    "start:open": "sleepms 500 && opn http://localhost:9116",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preversion": "npm run manpages",
+    "build": "browserify index.js | cat build/index.before-style.html build/style.css build/index.before-script.html - build/index.very-end.html > index.html",
+    "manpages": "scripts/manpages.sh",
+    "start": "budo --live --css=build/style.css --open index.js",
+    "test": "eslint . && echo \"Heads up! Only linting supported at the moment.\""
   },
+  "bin": {
+    "lightning-talk": "./bin/lightning-talk"
+  },
+  "files": [
+    "/index.js",
+    "/*.md",
+    "/manpages/"
+  ],
+  "man": [
+    "/manpages/elm-live.1"
+  ],
   "author": "© 2015 Studio B12 GmbH  (http://studio-b12.de)",
   "contributors": [
     "Tomek Wiszniewski <t.wiszniewski@gmail.com> (https://github.com/tomekwi)"
@@ -16,12 +28,20 @@
     "type": "git",
     "url": "git@github.com:studio-b12/lightning-talk"
   },
-  "homepage": "https://github.com/studio-b12/tape-css/#/",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^0.1.1",
-    "hostr": "^2.2.10",
-    "opn-cli": "^1.0.0",
-    "sleep-ms": "^2.0.0"
+    "budo": "^8.1.0",
+    "document-register-element": "^0.5.4",
+    "eslint": "^2.6.0",
+    "eslint-config-airbnb": "^6.2.0",
+    "marked-man": "^0.1.5"
+  },
+  "dependencies": {
+    "@parametric-svg/element": "^1.2.4",
+    "ecstatic": "^1.4.0",
+    "hasbin": "^1.2.1",
+    "minimist": "^1.2.0",
+    "mousetrap": "^1.5.3",
+    "open": "0.0.5"
   }
 }
