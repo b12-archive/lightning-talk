@@ -18,8 +18,11 @@ fetch('slides.svg').then(
 
   const refreshView = {
     set(target, key, value) {
-      if (key === 'currentSlide')
+      if (key === 'slide' && target.slide !== value)
         svg.setAttribute('viewBox', viewBox(value));
+
+      if (key === 'layer' && target.layer !== value)
+        parametricSvg.setAttribute('layer', value);
 
       target[key] = value; // eslint-disable-line no-param-reassign
       return true;
@@ -30,19 +33,21 @@ fetch('slides.svg').then(
   // MODEL
 
   const state = new Proxy({}, refreshView);
-  state.currentSlide =
+  state.slide =
+    0;
+  state.layer =
     0;
 
 
   // UPDATE
 
-  const incrementSlide = () => {
-    state.currentSlide += 1;
+  const increment = (what) => {
+    state[what] += 1;
   };
 
-  const decrementSlide = () => {
-    state.currentSlide = Math.max(
-      state.currentSlide - 1,
+  const decrement = (what) => {
+    state[what] = Math.max(
+      state[what] - 1,
       0
     );
   };
@@ -50,23 +55,24 @@ fetch('slides.svg').then(
   // Click
   display.addEventListener('click', (event) => {
     if (event.which !== 1) return;
-    incrementSlide();
     event.preventDefault();
+    increment('layer');
   });
 
   // Right click
   display.addEventListener('contextmenu', (event) => {
-    decrementSlide();
     event.preventDefault();
+    decrement('layer');
   });
 
   // Scroll wheel
   display.addEventListener('mousewheel', (event) => {
     if (event.wheelDelta < 0) {
-      incrementSlide();
+      increment('slide');
     } else {
-      decrementSlide();
+      decrement('slide');
     }
+    state.layer = 0;
     event.preventDefault();
   });
 });
