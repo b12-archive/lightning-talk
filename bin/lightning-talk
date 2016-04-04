@@ -48,10 +48,17 @@ http.createServer(
 ).listen(opts.port);
 
 process.stdout.write(
-  `Serving the current directory at http://0.0.0.0:${opts.port}.\n`
+`Serving your talk from the current directory at http://0.0.0.0:${opts.port}.
+Press ⌃C to end the process.
+`
 );
 
-if (opts.open) {
+if (opts.open !== false) {
   const open = require('open');
-  open(`http://localhost:${opts.port}`);
+  const address = `http://localhost:${opts.port}`;
+  if (typeof opts.open === 'string') {
+    open(address, opts.open);
+  } else {
+    open(address);
+  }
 }
