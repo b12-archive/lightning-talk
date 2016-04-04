@@ -1,4 +1,6 @@
-#! /usr/bin/bash -e
+#! /bin/sh -ex
+
+cd "$(dirname "$0")"/..
 
 mkdir -p manpages
 rm -rf manpages/*
@@ -18,7 +20,7 @@ cat Readme.md \
   | perl -0777 -pe 's#</?(?:a|p|img)[\S\s]*?>##g' \
   | perl -0777 -pe 's|```sh\n([\S\s]*?\n)```\n|$1|' \
   | perl -0777 -pe 's|<kbd>|`\[|g' | perl -0777 -pe 's|</kbd>|\]`|g' \
-  | marked-man \
+  | node_modules/.bin/marked-man \
     --version=v$(node -p 'require("./package.json").version') \
   > manpages/lightning-talk.1
 

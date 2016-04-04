@@ -3,9 +3,9 @@
   "version": "2.0.0",
   "description": "Show an SVG drawing as slides",
   "scripts": {
-    "preversion": "npm run manpages",
-    "build": "browserify index.js | cat build/index.before-style.html build/style.css build/index.before-script.html - build/index.very-end.html > index.html",
-    "manpages": "scripts/manpages.sh",
+    "preversion": "npm run build && npm run manpages",
+    "build": "scripts/build",
+    "manpages": "scripts/manpages",
     "start": "budo --live --css=build/style.css --open index.js",
     "test": "eslint . && echo \"Heads up! Only linting supported at the moment.\""
   },

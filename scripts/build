@@ -1,0 +1,12 @@
+#! /bin/sh -ex
+
+cd "$(dirname "$0")"/..
+
+node_modules/.bin/browserify index.js \
+  | cat \
+    build/index.before-style.html \
+    build/style.css \
+    build/index.before-script.html \
+    - \
+    build/index.very-end.html \
+  > index.html
