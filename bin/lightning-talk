@@ -1,11 +1,8 @@
 #! /usr/bin/env node
 
 const fs = require('fs-extra');
-const path = require('path');
-const child = require('child_process');
 
 const minimist = require('minimist');
-const hasbinSync = require('hasbin').sync;
 
 const opts = minimist(process.argv.slice(2), { default: {
   port: 8080,
@@ -15,6 +12,10 @@ const opts = minimist(process.argv.slice(2), { default: {
 } });
 
 if (opts.help) {
+  const path = require('path');
+  const child = require('child_process');
+  const hasbinSync = require('hasbin').sync;
+
   const manpagePath =
     path.resolve(__dirname, '../manpages/lightning-talk.1');
 
