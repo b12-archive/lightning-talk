@@ -35,7 +35,7 @@ npm install [--global] lightning-talk
 ## SYNOPSIS
 
 ```sh
-lightning-talk [--port=PORT] [--open]
+lightning-talk [--port=PORT] [--open]  
 lightning-talk --help
 ```
 

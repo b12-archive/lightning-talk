@@ -3,10 +3,20 @@
   "version": "2.0.0",
   "description": "Show an SVG drawing as slides",
   "scripts": {
+    "preversion": "npm run manpages",
     "build": "browserify index.js | cat build/index.before-style.html build/style.css build/index.before-script.html - build/index.very-end.html > index.html",
+    "manpages": "scripts/manpages.sh",
     "start": "budo --live --css=build/style.css --open index.js",
     "test": "eslint . && echo \"Heads up! Only linting supported at the moment.\""
   },
+  "files": [
+    "/index.js",
+    "/*.md",
+    "/manpages/"
+  ],
+  "man": [
+    "/manpages/elm-live.1"
+  ],
   "author": "© 2015 Studio B12 GmbH  (http://studio-b12.de)",
   "contributors": [
     "Tomek Wiszniewski <t.wiszniewski@gmail.com> (https://github.com/tomekwi)"
@@ -20,7 +30,8 @@
     "budo": "^8.1.0",
     "document-register-element": "^0.5.4",
     "eslint": "^2.6.0",
-    "eslint-config-airbnb": "^6.2.0"
+    "eslint-config-airbnb": "^6.2.0",
+    "marked-man": "^0.1.5"
   },
   "dependencies": {
     "@parametric-svg/element": "^1.2.4",
