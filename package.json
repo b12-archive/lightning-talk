@@ -15,7 +15,7 @@
   "files": [
     "/index.js",
     "/*.md",
-    "/manpages/"
+    "/manpages/",
     "/bin/"
   ],
   "man": [
