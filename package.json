@@ -16,6 +16,7 @@
     "/index.js",
     "/*.md",
     "/manpages/"
+    "/bin/"
   ],
   "man": [
     "/manpages/elm-live.1"
