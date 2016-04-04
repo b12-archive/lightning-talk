@@ -32,14 +32,15 @@
   "license": "MIT",
   "devDependencies": {
     "budo": "^8.1.0",
-    "document-register-element": "^0.5.4",
     "eslint": "^2.6.0",
     "eslint-config-airbnb": "^6.2.0",
     "marked-man": "^0.1.5"
   },
   "dependencies": {
     "@parametric-svg/element": "^1.2.4",
+    "document-register-element": "^0.5.4",
     "ecstatic": "^1.4.0",
+    "fs-extra": "^0.26.7",
     "hasbin": "^1.2.1",
     "minimist": "^1.2.0",
     "mousetrap": "^1.5.3",
