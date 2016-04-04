@@ -1,4 +1,4 @@
-const display = document.querySelector('main');
+const display = document.body;
 
 const viewBox = (slideNumber) => (
   `0 ${slideNumber * 1500} 1920 1080`
@@ -21,17 +21,15 @@ fetch('slides.svg').then(
   const incrementSlide = () => setSlide(++currentSlide);
 
   // Set listeners.
-  const body = document.body;
-
   //    - click
-  body.addEventListener('click', (event) => {
+  display.addEventListener('click', (event) => {
     if (event.which !== 1) return;
     incrementSlide();
     event.preventDefault();
   });
 
   //    - right click
-  body.addEventListener('contextmenu', (event) => {
+  display.addEventListener('contextmenu', (event) => {
     decrementSlide();
     event.preventDefault();
   });
