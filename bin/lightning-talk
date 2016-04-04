@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const child = require('child_process');
 
@@ -29,7 +29,12 @@ if (opts.help) {
   process.exit(0);
 }
 
-fs.writeFileSync(
+fs.copySync(
+  `${__dirname}/../index.html`,
   'index.html',
-  fs.readFileSync(`${__dirname}/index.html`)
+  { clobber: true }
 );
+
+if (!opts.serve) {
+  process.exit(0);
+}

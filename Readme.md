@@ -36,6 +36,7 @@ npm install [--global] lightning-talk
 
 ```sh
 lightning-talk [--port=PORT] [--open]  
+lightning-talk --no-serve  
 lightning-talk --help
 ```
 
@@ -48,7 +49,7 @@ lightning-talk --help
 
 First, we’ll create an `index.html` file in your current directory. We do this so that you can deploy your presentation easily.
 
-Second, we’ll spawn a static HTTP server at `PORT` (8080 by default).
+Second, we’ll spawn a static HTTP server at `PORT` (8080 by default). You can opt out of the server by passing `--no-serve`.
 
 Open the site in a modern browser (`google-chrome --app` often does a good job) and talk!
 
