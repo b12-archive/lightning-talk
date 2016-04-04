@@ -1,0 +1,41 @@
+const display = document.querySelector('main');
+
+const viewBox = (slideNumber) => (
+  `0 ${slideNumber * 1500} 1920 1080`
+);
+
+fetch('slides.svg').then(
+  response => response.text()
+).then((slides) => {
+  display.innerHTML = slides;
+
+  const svg = display.querySelector('svg');
+  const setSlide = (number) => svg.setAttribute('viewBox', viewBox(number));
+  setSlide(0);
+
+  var currentSlide = 0;
+  const decrementSlide = () => setSlide(currentSlide <= 0 ?
+    currentSlide :
+    --currentSlide
+  );
+  const incrementSlide = () => setSlide(++currentSlide);
+
+  // Set listeners.
+  const body = document.body;
+
+  //    - click
+  body.addEventListener('click', (event) => {
+    if (event.which !== 1) return;
+    incrementSlide();
+    event.preventDefault();
+  });
+
+  //    - right click
+  body.addEventListener('contextmenu', (event) => {
+    decrementSlide();
+    event.preventDefault();
+  });
+
+  // Export stuff.
+  window.setSlide = setSlide;
+});
