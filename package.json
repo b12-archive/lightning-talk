@@ -1,6 +1,6 @@
 {
   "name": "lightning-talk",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Show an SVG drawing as slides",
   "scripts": {
     "preversion": "npm run build && npm run manpages",
