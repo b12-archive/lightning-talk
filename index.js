@@ -1,5 +1,7 @@
 require('@parametric-svg/element');
 
+const mousetrap = require('mousetrap');
+
 const display = document.body;
 
 const viewBox = (slideNumber) => (
@@ -54,27 +56,38 @@ fetch('slides.svg').then(
     );
   };
 
-  // Click
-  display.addEventListener('click', (event) => {
-    if (event.which !== 1) return;
-    event.preventDefault();
-    increment('layer');
-  });
-
-  // Right click
-  display.addEventListener('contextmenu', (event) => {
-    event.preventDefault();
-    decrement('layer');
-  });
-
-  // Scroll wheel
-  display.addEventListener('mousewheel', (event) => {
-    if (event.wheelDelta < 0) {
-      increment('slide');
-    } else {
-      decrement('slide');
-    }
+  // Change slide
+  const changeSlide = (mutation) => (event) => {
+    mutation('slide');
     state.layer = 0;
     event.preventDefault();
+  };
+  const nextSlide = changeSlide(increment);
+  const previousSlide = changeSlide(decrement);
+
+  display.addEventListener('mousewheel', (event) => {
+    (event.wheelDelta < 0 ?
+      nextSlide :
+      previousSlide
+    )();
   });
+  mousetrap.bind(['right', 'space', 'pagedown'], nextSlide);
+  mousetrap.bind(['left', 'shift+space', 'pageup'], previousSlide);
+
+
+  // Change layer
+  const nextLayer = (event) => {
+    if (event.type === 'click' && event.which !== 1) return;
+    event.preventDefault();
+    increment('layer');
+  };
+  display.addEventListener('click', nextLayer);
+  mousetrap.bind('down', nextLayer);
+
+  const previousLayer = (event) => {
+    event.preventDefault();
+    decrement('layer');
+  };
+  display.addEventListener('contextmenu', previousLayer);
+  mousetrap.bind('up', previousLayer);
 });
