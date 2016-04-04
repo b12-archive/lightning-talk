@@ -39,3 +39,13 @@ fs.copySync(
 if (!opts.serve) {
   process.exit(0);
 }
+
+const http = require('http');
+const ecstatic = require('ecstatic');
+
+http.createServer(
+  ecstatic({ root: process.cwd() })
+).listen(opts.port);
+process.stdout.write(
+  `Serving the current directory at http://0.0.0.0:${opts.port}.\n`
+);
