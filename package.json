@@ -5,6 +5,7 @@
   "scripts": {
     "preversion": "npm run build && npm run manpages",
     "build": "scripts/build",
+    "bump": "yankee --tag --npm",
     "manpages": "scripts/manpages",
     "start": "budo --live --css=build/style.css --open index.js",
     "test": "eslint . && echo \"Heads up! Only linting supported at the moment.\""
