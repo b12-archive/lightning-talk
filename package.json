@@ -35,7 +35,8 @@
     "budo": "^8.1.0",
     "eslint": "^2.6.0",
     "eslint-config-airbnb": "^6.2.0",
-    "marked-man": "^0.1.5"
+    "marked-man": "^0.1.5",
+    "yankee": "^1.0.7"
   },
   "dependencies": {
     "@parametric-svg/element": "^1.2.4",
