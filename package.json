@@ -3,7 +3,7 @@
   "version": "3.0.2",
   "description": "Show an SVG drawing as slides",
   "scripts": {
-    "preversion": "npm run build && npm run manpages",
+    "prepublish": "npm run build && npm run manpages",
     "build": "scripts/build",
     "bump": "yankee --tag --npm",
     "manpages": "scripts/manpages",
