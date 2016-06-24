@@ -6,7 +6,7 @@ const mousetrap = require('mousetrap');
 const display = document.body;
 
 const viewBox = (slideNumber) => (
-  `0 ${slideNumber * 1500} 1920 1080`
+  `0 ${slideNumber * 2000} 1920 1080`
 );
 
 fetch('slides.svg').then(

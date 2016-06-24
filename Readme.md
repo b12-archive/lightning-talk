@@ -65,7 +65,7 @@ Pass `--open` if you want us to open the presentation in your default browser as
 0. Put a `slides.svg` in the project’s root folder. Make sure that:
   * Every slide is a *1920 × 1080 px* rectangle.
   * The first one starts at *0, 0*.
-  * Every next slide is *1500 px* below the previous one.
+  * Every next slide is *2000 px* below the previous one.
 
 0. We use [*parametric-svg*](https://git.io/parametric-svg) to allow animations and interactive stuff. During your talk you can increase the parameter `layer` with the flick of a button. It starts at `0` and gets reset to `0` whenever you change a slide. Feel free to use it how you want.
 
