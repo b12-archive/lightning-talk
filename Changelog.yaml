@@ -1,2 +1,7 @@
+master:
+  breaking changes:
+    - Distance between slides is now 2000 px.
+
 3.0.2:
-  note: Hello changelog! Hello yankee!
+  note: >
+    Hello changelog! Hello yankee!
