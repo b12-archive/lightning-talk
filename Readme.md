@@ -47,13 +47,11 @@ lightning-talk --help
 
 ## DESCRIPTION
 
-First, we’ll create an `index.html` file in your current directory. We do this so that you can deploy your presentation easily.
+First, we’ll create an `index.html` file in your current working directory (that’s where your [`slides.svg`](#/preparing-your-talk) should be). We do this so that you can deploy your slides as a static site easily.
 
 Second, we’ll spawn a static HTTP server at `PORT` (8080 by default). You can opt out of the server by passing `--no-serve`.
 
-Open the site in a modern browser (`google-chrome --app` often does a good job) and talk!
-
-Pass `--open` if you want us to open the presentation in your default browser as soon as it’s up and running. You can specify another browser like `--open='google-chrome --app'`.
+Pass `--open` if you want us to open the presentation in your default browser as soon as it’s up and running. Otherwise, just navigate to http://localhost:8080 and talk!
 
 
 
@@ -62,12 +60,14 @@ Pass `--open` if you want us to open the presentation in your default browser as
 
 ## PREPARING YOUR TALK
 
-0. Put a `slides.svg` in the project’s root folder. Make sure that:
-  * Every slide is a *1920 × 1080 px* rectangle.
+0. Put a `slides.svg` in a directory. This directory is where you’ll run `lightning-talk` later.
+
+0. Make sure that:
+  * Every slide is [at least](#/responsivity) a *1920 × 1080 px* rectangle.
   * The first one starts at *0, 0*.
   * Every next slide is *2000 px* below the previous one.
 
-0. We use [*parametric-svg*](https://git.io/parametric-svg) to allow animations and interactive stuff. During your talk you can increase the parameter `layer` with the flick of a button. It starts at `0` and gets reset to `0` whenever you change a slide. Feel free to use it how you want.
+0. We use [*parametric-svg*](https://git.io/parametric-svg) to allow animations and interactive stuff. During your talk you can increment the parameter `layer` with the flick of a button. It starts at `0` and gets reset to `0` whenever you change a slide. Feel free to use it how you want.
 
 
 
@@ -78,9 +78,20 @@ Pass `--open` if you want us to open the presentation in your default browser as
 
 0. Make sure you use a modern browser (`fetch` API, arrow functions, `Proxy`). Chrome v49+ and Firefox v40+ have it all.
 
-0. <kbd>SCROLL DOWN</kbd> or <kbd>→</kbd> to view the next slide. <kbd>SCROLL UP</kbd> or <kbd>←</kbd> to view the previous slide.
+0. Hit <kbd>PAGE DOWN</kbd>, <kbd>→</kbd> or scroll down to view the next slide. Hit <kbd>PAGE UP</kbd>, <kbd>←</kbd> or scroll up to view the previous slide.
 
-0. <kbd>LEFT CLICK</kbd> or <kbd>↓</kbd> to increase the layer. <kbd>RIGHT CLICK</kbd> or <kbd>↑</kbd> to decrease the layer.
+0. <kbd>LEFT CLICK</kbd> or <kbd>↓</kbd> to increment the layer. <kbd>RIGHT CLICK</kbd> or <kbd>↑</kbd> to decrement the layer.
+
+
+
+
+<a id="/responsivity"></a>&nbsp;
+
+## RESPONSIVITY
+
+All we do is scale and center each slide on the screen. So feel free to use the space between your slides to make them look good on screens of any proportions. Wherever there’s no content, we display a black background.
+
+Just be sure to view your presentation in landscape mode. Slides are guaranteed not to overlap then.
 
 
 
