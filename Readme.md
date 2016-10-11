@@ -35,7 +35,7 @@ npm install [--global] lightning-talk
 ## SYNOPSIS
 
 ```sh
-lightning-talk [--port=PORT] [--open | --open=APP]  
+lightning-talk [--port=<port>] [--open | --open=<executable>]  
 lightning-talk --no-serve  
 lightning-talk --help
 ```
@@ -49,7 +49,7 @@ lightning-talk --help
 
 First, we’ll create an `index.html` file in your current working directory (that’s where your [`slides.svg`](#/preparing-your-talk) should be). We do this so that you can deploy your slides as a static site easily.
 
-Second, we’ll spawn a static HTTP server at `PORT` (8080 by default). You can opt out of the server by passing `--no-serve`.
+Second, we’ll spawn a static HTTP server at `<port>` (8080 by default). You can opt out of the server by passing `--no-serve`.
 
 Pass `--open` if you want us to open the presentation in your default browser as soon as it’s up and running. Otherwise, just navigate to http://localhost:8080 and talk!
 
