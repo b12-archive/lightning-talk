@@ -36,6 +36,7 @@ npm install [--global] lightning-talk
 
 ```sh
 lightning-talk [--port=<port>] [--open | --open=<executable>]  
+               [--inject-html=<HTML to inject>]  
 lightning-talk --no-serve  
 lightning-talk --help
 ```
@@ -68,6 +69,8 @@ Pass `--open` if you want us to open the presentation in your default browser as
   * Every next slide is *2000 px* below the previous one.
 
 0. We use [*parametric-svg*](https://git.io/parametric-svg) to allow animations and interactive stuff. During your talk you can increment the parameter `layer` with the flick of a button. It starts at `0` and gets reset to `0` whenever you change a slide. Feel free to use it how you want.
+
+0. If you need custom HTML to display, say, a video background, this is your go-to option. Pass any HTML (including JS) through this option – we’ll add it right at the beginning of the `<body>`.
 
 
 

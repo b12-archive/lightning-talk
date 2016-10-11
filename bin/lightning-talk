@@ -9,6 +9,7 @@ const opts = minimist(process.argv.slice(2), { default: {
   serve: true,
   open: false,
   help: false,
+  'inject-html': '',
 } });
 
 if (opts.help) {
@@ -30,11 +31,13 @@ if (opts.help) {
   process.exit(0);
 }
 
-fs.copySync(
-  `${__dirname}/../index.html`,
-  'index.html',
-  { clobber: true }
+const originalIndexContents = (
+  fs.readFileSync(`${__dirname}/../index.html`, 'utf8')
 );
+const indexContents = (originalIndexContents
+  .replace(/(<body>)/, `$1${opts['inject-html']}`)
+);
+fs.writeFileSync('index.html', indexContents);
 
 if (!opts.serve) {
   process.exit(0);
