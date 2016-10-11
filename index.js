@@ -96,6 +96,7 @@ fetch('slides.svg').then(
   // Fullscreen
   mousetrap.bind('f', () => {
     if (display.requestFullscreen) display.requestFullscreen();
+    else if (display.webkitRequestFullscreen) display.webkitRequestFullscreen();
     else if (display.mozRequestFullScreen) display.mozRequestFullScreen();
   });
 });
