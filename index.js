@@ -93,7 +93,7 @@ fetch('slides.svg').then(
   display.addEventListener('contextmenu', previousLayer);
   mousetrap.bind('up', previousLayer);
 
-  // Full screen
+  // Fullscreen
   mousetrap.bind('f', () => {
     if (display.requestFullscreen) display.requestFullscreen();
     else if (display.mozRequestFullScreen) display.mozRequestFullScreen();
