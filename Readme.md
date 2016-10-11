@@ -78,6 +78,8 @@ Pass `--open` if you want us to open the presentation in your default browser as
 
 0. Make sure you use a modern browser (`fetch` API, arrow functions, `Proxy`). Chrome v49+ and Firefox v40+ have it all.
 
+0. Press <kbd>F</kbd> to send your talk into full screen mode.
+
 0. Hit <kbd>PAGE DOWN</kbd>, <kbd>→</kbd> or scroll down to view the next slide. Hit <kbd>PAGE UP</kbd>, <kbd>←</kbd> or scroll up to view the previous slide.
 
 0. <kbd>LEFT CLICK</kbd> or <kbd>↓</kbd> to increment the layer. <kbd>RIGHT CLICK</kbd> or <kbd>↑</kbd> to decrement the layer.

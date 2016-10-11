@@ -1,7 +1,11 @@
+master:
+  new features:
+    - `F` sends into full screen mode
+
 4.0.0:
   date: 2016-06-25
   breaking changes:
-    - Distance between slides is now 2000 px.
+    - Distance between slides is now 2000 px
 
 3.0.2:
   note: |

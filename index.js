@@ -12,6 +12,8 @@ const viewBox = (slideNumber) => (
 fetch('slides.svg').then(
   response => response.text()
 ).then((slides) => {
+
+
   // VIEW
 
   const parametricSvg = document.createElement('parametric-svg');
@@ -75,7 +77,6 @@ fetch('slides.svg').then(
   mousetrap.bind(['right', 'space', 'pagedown'], nextSlide);
   mousetrap.bind(['left', 'shift+space', 'pageup'], previousSlide);
 
-
   // Change layer
   const nextLayer = (event) => {
     if (event.type === 'click' && event.which !== 1) return;
@@ -91,4 +92,10 @@ fetch('slides.svg').then(
   };
   display.addEventListener('contextmenu', previousLayer);
   mousetrap.bind('up', previousLayer);
+
+  // Full screen
+  mousetrap.bind('f', () => {
+    if (display.requestFullscreen) display.requestFullscreen();
+    else if (display.mozRequestFullScreen) display.mozRequestFullScreen();
+  });
 });
