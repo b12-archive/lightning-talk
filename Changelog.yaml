@@ -1,8 +1,9 @@
-master:
+4.1.0:
+  date: 2016-10-12
   new features:
-    - >
+    - |
       `F` sends into fullscreen mode
-    - >
+    - |
       `--inject-html`
 
 4.0.0:
