@@ -63,7 +63,7 @@ fetch('slides.svg').then(
   const changeSlide = (mutation) => (event) => {
     mutation('slide');
     state.layer = 0;
-    event.preventDefault();
+    if (!!event) event.preventDefault();
   };
   const nextSlide = changeSlide(increment);
   const previousSlide = changeSlide(decrement);
@@ -79,15 +79,15 @@ fetch('slides.svg').then(
 
   // Change layer
   const nextLayer = (event) => {
-    if (event.type === 'click' && event.which !== 1) return;
-    event.preventDefault();
+    if (!!event && event.type === 'click' && event.which !== 1) return;
+    if (!!event) event.preventDefault();
     increment('layer');
   };
   display.addEventListener('click', nextLayer);
   mousetrap.bind('down', nextLayer);
 
   const previousLayer = (event) => {
-    event.preventDefault();
+    if (!!event) event.preventDefault();
     decrement('layer');
   };
   display.addEventListener('contextmenu', previousLayer);
