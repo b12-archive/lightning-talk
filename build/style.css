@@ -12,6 +12,7 @@ body > parametric-svg > svg {
   -webkit-user-select: none;
 }
 
-html {
+html,
+body {
   background-color: black;
 }

@@ -1,3 +1,7 @@
+master:
+  fixed bugs:
+    - Fixed background in fullscreen mode
+
 4.1.0:
   date: 2016-10-12
   new features:
