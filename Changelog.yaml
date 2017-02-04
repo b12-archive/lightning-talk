@@ -1,4 +1,5 @@
-master:
+4.1.1:
+  date: 2017-02-04
   fixed bugs:
     - Fixed background in fullscreen mode
 
